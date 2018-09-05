@@ -1,0 +1,9 @@
+.idea
+target
+*.iml
+*.iws
+!.gitkeep
+*.log
+*.log.zip
+*.bad
+*.war
