@@ -15,9 +15,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>validator</groupId>
-            <artifactId>transactional</artifactId>
+            <groupId>event</groupId>
+            <artifactId>com.backoffice.transport</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-util</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--Thymeleaf-->

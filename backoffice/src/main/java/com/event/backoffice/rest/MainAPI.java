@@ -1,6 +1,5 @@
 package com.event.backoffice.rest;
 
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

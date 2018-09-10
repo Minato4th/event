@@ -11,8 +11,6 @@
     <modules>
         <module>backoffice</module>
         <module>portal</module>
-        <module>transactional</module>
-        <module>backcffice-transport</module>
         <module>backoffice-transport</module>
     </modules>
     <parent>
@@ -43,7 +41,7 @@
         <!--For Rest things if required-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-com.portal.com.event.backoffice.rest</artifactId>
+            <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
 
         <!--For Spring Boot fast run-->

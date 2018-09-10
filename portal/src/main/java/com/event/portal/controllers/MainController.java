@@ -1,4 +1,4 @@
-package com.event.portal.controllers;//HelloMan
+package com.event.portal.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
