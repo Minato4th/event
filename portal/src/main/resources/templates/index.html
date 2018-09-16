@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Main Page</title>
 </head>
 <body>
 <h1>Hello</h1>
-<p>Choose what to do : <span th:text="${appName}"></span></p>
+<p>Choose what to do : <span id="appName" th:text="${appName}"></span></p>
+
+<p>User : <span id="user" th:text="${user}"></span></p>
 
 </body>
 </html>

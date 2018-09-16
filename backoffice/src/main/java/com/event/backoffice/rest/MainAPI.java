@@ -1,5 +1,6 @@
 package com.event.backoffice.rest;
 
+import com.event.backoffice.model.dto.UserDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -18,4 +19,12 @@ public interface MainAPI {
             @ApiResponse(code = 500, message = "Something go wrong")
     })
     String getData();
+
+    @ApiOperation(value = "Get UserDto from DataBase")
+//    @ApiResponse(response = UserDto.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "Something go wrong")
+    })
+    UserDto getUser();
 }

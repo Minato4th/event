@@ -7,5 +7,7 @@ public interface UserDao {
     String getData();
 
     User getUserById(Long id);
+
+    User getUser();
 }
 

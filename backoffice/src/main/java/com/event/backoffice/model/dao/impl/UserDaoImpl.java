@@ -22,4 +22,9 @@ public class UserDaoImpl implements UserDao {
     public User getUserById(Long id) {
         return null;
     }
+
+    @Override
+    public User getUser() {
+        return entityManager.createQuery("FROM User", User.class).getSingleResult();
+    }
 }
