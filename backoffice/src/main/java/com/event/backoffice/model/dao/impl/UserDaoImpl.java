@@ -1,21 +1,21 @@
 package com.event.backoffice.model.dao.impl;
 
 import com.event.backoffice.model.User;
+import com.event.backoffice.model.dao.GenericDaoImpl;
 import com.event.backoffice.model.dao.UserDao;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 @Repository("userDao")
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl extends GenericDaoImpl<User, Long> implements UserDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    protected UserDaoImpl() {
+        super(User.class);
+    }
 
     @Override
     public String getData() {
-        return entityManager.createQuery("SELECT u FROM User u", User.class).getSingleResult().getUserName();
+//        return entityManager.createQuery("SELECT u FROM User u", User.class).getSingleResult().getUserName();
+        return null;
     }
 
     @Override
@@ -25,6 +25,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUser() {
-        return entityManager.createQuery("FROM User", User.class).getSingleResult();
+        return null;
+//        return entityManager.createQuery("FROM User", User.class).getSingleResult();
     }
 }

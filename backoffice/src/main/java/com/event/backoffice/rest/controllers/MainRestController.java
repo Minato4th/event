@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.transaction.Transactional;
+
 @RestController
 @RequestMapping(path = "/")
 @RequiredArgsConstructor
+@Transactional
 public class MainRestController implements MainAPI {
 
     private final UserDao userDao;
@@ -22,13 +25,19 @@ public class MainRestController implements MainAPI {
     @GetMapping(path = "getData")
     @Override
     public String getData() {
-        return userDao.getData();
+//        User user = User.builder()
+//                .userName("Some")
+//                .company("none")
+//                .build();
+//        userDao.persist(user);
+//        userDao.delete(user);
+        return userDao.countAll().toString();
     }
 
     @GetMapping(path = "getUser")
     @Override
     public UserDto getUser() {
-        User user = userDao.getUser();
+        User user = userDao.getById(1L);
         return userToDtoConverter.convert(user);
     }
 }

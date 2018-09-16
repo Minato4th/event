@@ -1,17 +1,22 @@
 package com.event.backoffice.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
-//@Builder
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "user", schema = "public")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 2527956299820570815L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
