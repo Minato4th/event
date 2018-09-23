@@ -1,9 +1,19 @@
 package com.event.backoffice.rest.controllers;
 
+import com.event.backoffice.converter.FAQToDtoConverter;
+import com.event.backoffice.converter.PolyclinicsToDtoConverter;
 import com.event.backoffice.converter.UserToDtoConverter;
+import com.event.backoffice.dto.FAQDto;
+import com.event.backoffice.dto.PolyclinicsDto;
+import com.event.backoffice.model.FAQ;
+import com.event.backoffice.model.Phones;
+import com.event.backoffice.model.Polyclinics;
 import com.event.backoffice.model.User;
+import com.event.backoffice.model.dao.FAQDao;
+import com.event.backoffice.model.dao.PhonesDao;
+import com.event.backoffice.model.dao.PolyclinicsDao;
 import com.event.backoffice.model.dao.UserDao;
-import com.event.backoffice.model.dto.UserDto;
+import com.event.backoffice.dto.UserDto;
 import com.event.backoffice.rest.MainAPI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +30,17 @@ public class MainRestController implements MainAPI {
 
     private final UserDao userDao;
 
+    private final FAQDao faqDao;
+
+    private final PolyclinicsDao polyclinicsDao;
+
     private final UserToDtoConverter userToDtoConverter;
+
+    private final PolyclinicsToDtoConverter polyclinicsToDtoConverter;
+
+    private final PhonesDao phonesDao;
+
+    private final FAQToDtoConverter faqToDtoConverter;
 
     @GetMapping(path = "getData")
     @Override
@@ -31,13 +51,44 @@ public class MainRestController implements MainAPI {
 //                .build();
 //        userDao.persist(user);
 //        userDao.delete(user);
-        return userDao.countAll().toString();
+        return userDao.findOne(1L).toString();
     }
 
     @GetMapping(path = "getUser")
     @Override
     public UserDto getUser() {
-        User user = userDao.getById(1L);
+        User user = userDao.getUserById(1L);
         return userToDtoConverter.convert(user);
+    }
+
+    @GetMapping(path = "getFAQ")
+    @Override
+    public FAQDto getFAQ() {
+        FAQ faq = faqDao.findOne(1L);
+        return faqToDtoConverter.convert(faq);
+    }
+
+    @GetMapping(path = "getPolyclinic")
+    @Override
+    public PolyclinicsDto getPolyclinic(){
+//        Polyclinics pol = Polyclinics.builder()
+//                .address("some")
+//                .latitude(100d)
+//                .longitude(12.8d)
+//                .name("Some")
+//                .build();
+//
+//        polyclinicsDao.save(pol);
+//
+//        Phones phones = Phones.builder()
+//                .phoneNumber("sd")
+//                .polyclinics(pol)
+//                .person("sds")
+//                .build();
+//
+//        phonesDao.save(phones);
+
+        Polyclinics polyclinics = polyclinicsDao.findOne(11l);
+        return polyclinicsToDtoConverter.convert(polyclinics);
     }
 }

@@ -1,0 +1,50 @@
+CREATE TABLE public.faq
+(
+    faq_id serial NOT NULL,
+    question character varying(255),
+    answer character varying(255),
+    CONSTRAINT faq_id PRIMARY KEY (faq_id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.faq
+    OWNER to postgres;
+
+
+CREATE TABLE public.phones
+(
+    phone_id serial NOT NULL,
+    polyclinics_id bigint NOT NULL,
+    person character varying(255),
+    phone_number character varying(255),
+    CONSTRAINT phone_id PRIMARY KEY (phone_id),
+    CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
+        REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.phones
+    OWNER to postgres;
+
+CREATE TABLE public.polyclinics
+(
+    clinic_id serial NOT NULL,
+    name character varying(255),
+    address character varying(255),
+    latitude double precision,
+    longitude double precision,
+    CONSTRAINT clinics_id PRIMARY KEY (clinic_id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.polyclinics
+    OWNER to postgres;
+

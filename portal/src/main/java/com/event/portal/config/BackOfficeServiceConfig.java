@@ -1,7 +1,6 @@
 package com.event.portal.config;
 
-import com.backoffice.transport.operations.UserOperation;
-import com.backoffice.transport.operations.UserRestTemplate;
+import com.backoffice.transport.operations.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +19,16 @@ public class BackOfficeServiceConfig {
     @Bean
     public UserOperation getUserOperation(@Qualifier("getRestTemplate") final RestTemplate rest) {
         return new UserRestTemplate(rest, "");
+    }
+
+    @Bean
+    public FAQOperation getFAQOperation(@Qualifier("getRestTemplate") final RestTemplate rest){
+        return new FAQRestTemplate(rest);
+    }
+
+    @Bean
+    public PolyclinicsOperation getPolyclinicsOperation(@Qualifier("getRestTemplate") final RestTemplate rest){
+        return new PolyclinicsRestTemplate(rest);
     }
 
 }

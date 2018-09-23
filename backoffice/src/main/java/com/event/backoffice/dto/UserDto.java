@@ -1,4 +1,4 @@
-package com.event.backoffice.model.dto;
+package com.event.backoffice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
