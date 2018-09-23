@@ -25,19 +25,19 @@ public class MainRestController implements MainAPI {
     @GetMapping(path = "getData")
     @Override
     public String getData() {
-//        User user = User.builder()
-//                .userName("Some")
-//                .company("none")
-//                .build();
-//        userDao.persist(user);
+        User user = User.builder()
+                .userName("Some")
+                .company("none")
+                .build();
+        userDao.save(user);
 //        userDao.delete(user);
-        return userDao.countAll().toString();
+        return userDao.getData().get(2);
     }
 
     @GetMapping(path = "getUser")
     @Override
     public UserDto getUser() {
-        User user = userDao.getById(1L);
+        User user = userDao.findOne(1L);
         return userToDtoConverter.convert(user);
     }
 }
