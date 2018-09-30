@@ -12,18 +12,28 @@ public class PolyclinicsToDtoConverter implements Converter<Polyclinics, Polycli
 
     private final PhonesToDtoConverter phonesToDtoConverter;
 
-    public PolyclinicsToDtoConverter(final PhonesToDtoConverter phonesToDtoConverter) {
+    private final RatingToDtoConverter ratingToDtoConverter;
+
+    public PolyclinicsToDtoConverter(final PhonesToDtoConverter phonesToDtoConverter, RatingToDtoConverter ratingToDtoConverter) {
         this.phonesToDtoConverter = phonesToDtoConverter;
+        this.ratingToDtoConverter = ratingToDtoConverter;
     }
 
+    //TODO - rewrite get rating
     @Override
     public PolyclinicsDto convert(Polyclinics source) {
         return PolyclinicsDto.builder()
                 .clinicId(source.getClinicId())
                 .name(source.getName())
+                .remark(source.getRemark())
                 .latitude(source.getLatitude())
                 .longitude(source.getLongitude())
                 .address(source.getAddress())
+                .rating(source.getRating().stream()
+                        .map(ratingToDtoConverter::convert)
+                        .findFirst()
+                        .get()
+                        .getRating())
                 .phones(source.getPhones().stream()
                         .map(phonesToDtoConverter::convert)
                         .collect(Collectors.toList())

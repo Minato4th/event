@@ -6,28 +6,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PolyclinicsDto {
-
-    private Long clinicId;
+public class MedicamentsDto {
 
     private String name;
 
-    private String address;
-
-    private String remark;
-
-    private Double latitude;
-
-    private Double longitude;
-
-    private Double rating;
-
-    private List<PhonesDto> phones;
 }

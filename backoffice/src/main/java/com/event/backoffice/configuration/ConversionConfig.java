@@ -1,9 +1,6 @@
 package com.event.backoffice.configuration;
 
-import com.event.backoffice.converter.FAQToDtoConverter;
-import com.event.backoffice.converter.PhonesToDtoConverter;
-import com.event.backoffice.converter.PolyclinicsToDtoConverter;
-import com.event.backoffice.converter.UserToDtoConverter;
+import com.event.backoffice.converter.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.ConversionService;
@@ -17,8 +14,10 @@ public class ConversionConfig {
         DefaultConversionService service = new DefaultConversionService();
         service.addConverter(new UserToDtoConverter());
         service.addConverter(new FAQToDtoConverter());
-        service.addConverter(new PolyclinicsToDtoConverter(new PhonesToDtoConverter()));
+        service.addConverter(new PolyclinicsToDtoConverter(new PhonesToDtoConverter(), new RatingToDtoConverter()));
         service.addConverter(new PhonesToDtoConverter());
+        service.addConverter(new RatingToDtoConverter());
+        service.addConverter(new MedicamentsToDtoConverter());
         return service;
     }
 

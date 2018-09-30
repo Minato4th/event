@@ -13,6 +13,24 @@ ALTER TABLE public.faq
     OWNER to postgres;
 
 
+CREATE TABLE public.polyclinics
+(
+    clinic_id serial NOT NULL,
+    name character varying(255),
+    remark character varying(255),
+    address character varying(255),
+    latitude double precision,
+    longitude double precision,
+    CONSTRAINT clinics_id PRIMARY KEY (clinic_id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.polyclinics
+    OWNER to postgres;
+
+
 CREATE TABLE public.phones
 (
     phone_id serial NOT NULL,
@@ -32,19 +50,34 @@ WITH (
 ALTER TABLE public.phones
     OWNER to postgres;
 
-CREATE TABLE public.polyclinics
+CREATE TABLE public.ratings
 (
-    clinic_id serial NOT NULL,
-    name character varying(255),
-    address character varying(255),
-    latitude double precision,
-    longitude double precision,
-    CONSTRAINT clinics_id PRIMARY KEY (clinic_id)
+    rating_id serial NOT NULL,
+    polyclinics_id bigint,
+    rating double precision,
+    CONSTRAINT rating_id PRIMARY KEY (rating_id),
+    CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
+        REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
 )
 WITH (
     OIDS = FALSE
 );
 
-ALTER TABLE public.polyclinics
+ALTER TABLE public.ratings
     OWNER to postgres;
 
+    CREATE TABLE public.medicaments
+(
+    medicament_id serial NOT NULL,
+    name character varying(266),
+    remark character varying(266),
+    CONSTRAINT medicament_id PRIMARY KEY (medicament_id)
+)
+WITH (
+    OIDS = FALSE
+);
+
+ALTER TABLE public.medicaments
+    OWNER to postgres;

@@ -30,11 +30,17 @@ public class Polyclinics implements Serializable{
     @Column(name = "address")
     private String address;
 
+    @Column(name = "remark")
+    private String remark;
+
     @Column(name = "latitude")
     private Double latitude;
 
     @Column(name = "longitude")
     private Double longitude;
+
+    @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
+    private List<Ratings> rating;
 
     @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
     private List<Phones> phones;

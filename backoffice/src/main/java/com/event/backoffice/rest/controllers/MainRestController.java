@@ -21,6 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/")
@@ -88,7 +91,17 @@ public class MainRestController implements MainAPI {
 //
 //        phonesDao.save(phones);
 
-        Polyclinics polyclinics = polyclinicsDao.findOne(11l);
+        Polyclinics polyclinics = polyclinicsDao.findOne(1l);
         return polyclinicsToDtoConverter.convert(polyclinics);
+    }
+
+    @GetMapping(path = "getPolyclinics")
+    @Override
+    public List<PolyclinicsDto> getPolyclinics(){
+        final List<Polyclinics> polyclinics = polyclinicsDao.findAll();
+        System.out.println(polyclinics.size());
+        return polyclinics.stream()
+                .map(polyclinicsToDtoConverter::convert)
+                .collect(Collectors.toList());
     }
 }
