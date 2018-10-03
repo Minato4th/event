@@ -6,11 +6,11 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RatingToDtoConverter implements Converter<Ratings, RatingDto> {
+public class RatingDtoToRatingConverter implements Converter<RatingDto, Ratings> {
 
     @Override
-    public RatingDto convert(Ratings source) {
-        return RatingDto.builder()
+    public Ratings convert(RatingDto source) {
+        return Ratings.builder()
                 .rating(source.getRating())
                 .creationTime(source.getCreationTime())
                 .build();

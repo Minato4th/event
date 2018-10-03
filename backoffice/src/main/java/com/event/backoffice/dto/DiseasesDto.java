@@ -3,18 +3,13 @@ package com.event.backoffice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
-import java.util.Date;
-
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RatingDto {
+public class DiseasesDto {
 
-    private Double rating;
-
-    private Date creationTime;
-
+    private String disease;
 }

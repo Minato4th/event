@@ -17,7 +17,7 @@ CREATE TABLE public.polyclinics
 (
     clinic_id serial NOT NULL,
     name character varying(255),
-    remark character varying(255),
+    short_name character varying(255),
     address character varying(255),
     latitude double precision,
     longitude double precision,
@@ -55,6 +55,7 @@ CREATE TABLE public.ratings
     rating_id serial NOT NULL,
     polyclinics_id bigint,
     rating double precision,
+    creation_time timestamp WITH TIME ZONE,
     CONSTRAINT rating_id PRIMARY KEY (rating_id),
     CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
         REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
@@ -68,11 +69,12 @@ WITH (
 ALTER TABLE public.ratings
     OWNER to postgres;
 
-    CREATE TABLE public.medicaments
+CREATE TABLE public.medicaments
 (
     medicament_id serial NOT NULL,
-    name character varying(266),
-    remark character varying(266),
+    name character varying(255),
+    remark character varying(255),
+    dose character varying(255),
     CONSTRAINT medicament_id PRIMARY KEY (medicament_id)
 )
 WITH (
@@ -81,3 +83,53 @@ WITH (
 
 ALTER TABLE public.medicaments
     OWNER to postgres;
+
+CREATE TABLE public.remarks
+(
+  remark_id serial NOT NULL,
+  polyclinics_id bigint,
+  remark character varying(255),
+  CONSTRAINT remark_id PRIMARY KEY (remark_id),
+  CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
+  REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+)
+WITH (
+OIDS = FALSE
+);
+
+ALTER TABLE public.remarks
+  OWNER to postgres;
+
+CREATE TABLE public.comments
+(
+  comments_id serial NOT NULL,
+  polyclinics_id bigint,
+  comment character varying(255),
+  creation_time time with time zone,
+  CONSTRAINT comments_id PRIMARY KEY (comments_id),
+  CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
+  REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
+  ON UPDATE NO ACTION
+  ON DELETE NO ACTION
+)
+WITH (
+OIDS = FALSE
+);
+
+ALTER TABLE public.comments
+  OWNER to postgres;
+
+CREATE TABLE public.diseases
+(
+  disease_id serial NOT NULL,
+  disease character varying(255),
+  CONSTRAINT disease_id PRIMARY KEY (disease_id)
+)
+WITH (
+OIDS = FALSE
+);
+
+ALTER TABLE public.diseases
+  OWNER to postgres;

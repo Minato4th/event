@@ -1,17 +1,15 @@
 package com.event.backoffice.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PolyclinicsDto {
 
@@ -19,9 +17,11 @@ public class PolyclinicsDto {
 
     private String name;
 
+    private String shortName;
+
     private String address;
 
-    private String remark;
+    private List<String> remark;
 
     private Double latitude;
 
@@ -30,4 +30,6 @@ public class PolyclinicsDto {
     private Double rating;
 
     private List<PhonesDto> phones;
+
+    private List<CommentsDto> comments;
 }

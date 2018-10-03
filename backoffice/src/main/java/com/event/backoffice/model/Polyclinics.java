@@ -1,21 +1,21 @@
 package com.event.backoffice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
+@EqualsAndHashCode
+@ToString
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "polyclinics", schema = "public")
-public class Polyclinics implements Serializable{
+public class Polyclinics implements Serializable {
 
     private static final long serialVersionUID = 3055334097512989177L;
 
@@ -27,11 +27,14 @@ public class Polyclinics implements Serializable{
     @Column(name = "name")
     private String name;
 
+    @Column(name = "short_name")
+    private String shortName;
+
     @Column(name = "address")
     private String address;
 
-    @Column(name = "remark")
-    private String remark;
+    @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
+    private List<Remarks> remarks;
 
     @Column(name = "latitude")
     private Double latitude;
@@ -44,4 +47,7 @@ public class Polyclinics implements Serializable{
 
     @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
     private List<Phones> phones;
+
+    @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
+    private List<Comments> comments;
 }

@@ -12,6 +12,7 @@ public class MedicamentsToDtoConverter implements Converter<Medicaments, Medicam
     public MedicamentsDto convert(Medicaments source) {
         return MedicamentsDto.builder()
                 .name(source.getName())
+                .dose(source.getDose())
                 .build();
     }
 }

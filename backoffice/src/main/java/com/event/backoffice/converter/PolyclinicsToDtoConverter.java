@@ -14,9 +14,15 @@ public class PolyclinicsToDtoConverter implements Converter<Polyclinics, Polycli
 
     private final RatingToDtoConverter ratingToDtoConverter;
 
-    public PolyclinicsToDtoConverter(final PhonesToDtoConverter phonesToDtoConverter, RatingToDtoConverter ratingToDtoConverter) {
+    private final RemarksToDtoConverter remarksToDtoConverter;
+
+    private final CommentsToDtoConverter commentsToDtoConverter;
+
+    public PolyclinicsToDtoConverter(final PhonesToDtoConverter phonesToDtoConverter, RatingToDtoConverter ratingToDtoConverter, RemarksToDtoConverter remarksToDtoConverter, CommentsToDtoConverter commentsToDtoConverter) {
         this.phonesToDtoConverter = phonesToDtoConverter;
         this.ratingToDtoConverter = ratingToDtoConverter;
+        this.remarksToDtoConverter = remarksToDtoConverter;
+        this.commentsToDtoConverter = commentsToDtoConverter;
     }
 
     //TODO - rewrite get rating
@@ -25,19 +31,23 @@ public class PolyclinicsToDtoConverter implements Converter<Polyclinics, Polycli
         return PolyclinicsDto.builder()
                 .clinicId(source.getClinicId())
                 .name(source.getName())
-                .remark(source.getRemark())
+                .shortName(source.getShortName())
+                .remark(source.getRemarks().stream()
+                        .map(r -> remarksToDtoConverter.convert(r).getRemark())
+                        .collect(Collectors.toList()))
                 .latitude(source.getLatitude())
                 .longitude(source.getLongitude())
                 .address(source.getAddress())
                 .rating(source.getRating().stream()
-                        .map(ratingToDtoConverter::convert)
-                        .findFirst()
-                        .get()
-                        .getRating())
+                        .map(r -> ratingToDtoConverter.convert(r).getRating())
+                        .collect(Collectors.toList()).stream()
+                        .mapToDouble(Double::doubleValue).average().getAsDouble())
                 .phones(source.getPhones().stream()
                         .map(phonesToDtoConverter::convert)
-                        .collect(Collectors.toList())
-                )
+                        .collect(Collectors.toList()))
+                .comments(source.getComments().stream()
+                        .map(commentsToDtoConverter::convert)
+                        .collect(Collectors.toList()))
                 .build();
     }
 }

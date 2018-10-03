@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping(path = "/")
 @RequiredArgsConstructor
-@Transactional
 public class FaqController implements FaqAPI{
 
     private final FAQDao faqDao;

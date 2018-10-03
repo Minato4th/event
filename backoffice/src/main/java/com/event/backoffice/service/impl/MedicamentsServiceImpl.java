@@ -1,29 +1,26 @@
-package com.event.backoffice.rest.controllers;
+package com.event.backoffice.service.impl;
 
 import com.event.backoffice.converter.MedicamentsToDtoConverter;
 import com.event.backoffice.dto.MedicamentsDto;
 import com.event.backoffice.model.dao.MedicamentsDao;
-import com.event.backoffice.rest.MedicamentsAPI;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.event.backoffice.service.MedicamentsService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
-@RequestMapping(path = "/")
-@RequiredArgsConstructor
-public class MedicamentsController implements MedicamentsAPI{
+@Service
+@Transactional
+@AllArgsConstructor
+public class MedicamentsServiceImpl implements MedicamentsService {
 
     private final MedicamentsDao medicamentsDao;
 
     private final MedicamentsToDtoConverter medicamentsToDtoConverter;
 
     @Override
-    @GetMapping(path = "api/medicaments/all")
     public List<MedicamentsDto> getMedicaments() {
         return medicamentsDao.findAll().stream()
                 .map(medicamentsToDtoConverter::convert)

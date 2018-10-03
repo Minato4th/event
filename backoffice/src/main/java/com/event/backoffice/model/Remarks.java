@@ -13,23 +13,20 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "phones", schema = "public")
-public class Phones implements Serializable {
+@Table(name = "remarks", schema = "public")
+public class Remarks implements Serializable{
 
-    private static final long serialVersionUID = -226837468282410404L;
+    private static final long serialVersionUID = 5138186622781682333L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "phone_id")
-    private Long phoneId;
+    @Column(name = "remark_id")
+    private Long remarkId;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "polyclinics_id")
     private Polyclinics polyclinics;
 
-    @Column(name = "person")
-    private String person;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @Column(name = "remark")
+    private String remark;
 }

@@ -17,7 +17,7 @@ public interface MedicamentsAPI {
 
     @ApiOperation(value = "Get all Medicaments from DataBase")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 200, message = "OK", response = MedicamentsDto.class),
             @ApiResponse(code = 500, message = "Something go wrong")
     })
     List<MedicamentsDto> getMedicaments();

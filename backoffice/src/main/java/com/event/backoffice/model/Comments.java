@@ -12,18 +12,18 @@ import java.util.Date;
 @Getter
 @Setter
 @Builder
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "ratings", schema = "public")
-public class Ratings implements Serializable {
+@Table(name = "comments", schema = "public")
+public class Comments implements Serializable {
 
-    private static final long serialVersionUID = 4935267016566262189L;
+    private static final long serialVersionUID = -2786894111427327691L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "rating_id")
-    private Long ratingId;
+    @Column(name = "comments_id")
+    private Long commentsId;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "polyclinics_id")
@@ -32,9 +32,9 @@ public class Ratings implements Serializable {
 //    @Column(name = "user_id")//TODO: refactor when user will be available BD
 //    private String user_id;
 
-    @Column(name = "rating")
-    private Double rating;
+    @Column(name = "comment")
+    private String comment;
 
     @Column(name = "creation_time")
-    private Date creationTime;
+    private Date creationTime;// TODO: refactor date and time
 }

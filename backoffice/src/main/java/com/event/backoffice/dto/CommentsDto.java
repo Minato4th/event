@@ -11,10 +11,9 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class RatingDto {
+public class CommentsDto {
 
-    private Double rating;
+    private String comment;
 
     private Date creationTime;
-
 }

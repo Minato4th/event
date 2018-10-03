@@ -14,10 +14,15 @@ public class ConversionConfig {
         DefaultConversionService service = new DefaultConversionService();
         service.addConverter(new UserToDtoConverter());
         service.addConverter(new FAQToDtoConverter());
-        service.addConverter(new PolyclinicsToDtoConverter(new PhonesToDtoConverter(), new RatingToDtoConverter()));
+        service.addConverter(new PolyclinicsToDtoConverter(new PhonesToDtoConverter(),
+                new RatingToDtoConverter(), new RemarksToDtoConverter(), new CommentsToDtoConverter()));
         service.addConverter(new PhonesToDtoConverter());
         service.addConverter(new RatingToDtoConverter());
         service.addConverter(new MedicamentsToDtoConverter());
+        service.addConverter(new RemarksToDtoConverter());
+        service.addConverter(new DiseasesToDtoConverter());
+        service.addConverter(new CommentsToDtoConverter());
+        service.addConverter(new CommentsDtoToCommentsConverter());
         return service;
     }
 

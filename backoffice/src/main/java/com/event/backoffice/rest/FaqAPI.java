@@ -17,7 +17,7 @@ public interface FaqAPI {
 
     @ApiOperation(value = "Get all FAQ from DataBase")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 200, message = "OK", response = FAQDto.class),
             @ApiResponse(code = 500, message = "Something go wrong")
     })
     List<FAQDto> getFAQ();

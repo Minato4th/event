@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -17,8 +18,15 @@ public interface PolyclinicsAPI {
 
     @ApiOperation(value = "Get all Polyclinics from DataBase")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 200, message = "OK", response = PolyclinicsDto.class),
             @ApiResponse(code = 500, message = "Something go wrong")
     })
     List<PolyclinicsDto> getPolyclinics();
+
+    @ApiOperation(value = "Get specified Polyclinics from DataBase by id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = PolyclinicsDto.class),
+            @ApiResponse(code = 500, message = "Something go wrong")
+    })
+    PolyclinicsDto getPolyclinicsById(@PathVariable Long polyclinicsId);
 }
