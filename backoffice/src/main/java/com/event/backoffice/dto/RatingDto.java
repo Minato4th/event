@@ -3,6 +3,7 @@ package com.event.backoffice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -15,6 +16,6 @@ public class RatingDto {
 
     private Double rating;
 
-    private Date creationTime;
+    private LocalDateTime creationTime;
 
 }

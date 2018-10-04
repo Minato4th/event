@@ -19,7 +19,7 @@ public class Remarks implements Serializable{
     private static final long serialVersionUID = 5138186622781682333L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "remark_id")
     private Long remarkId;
 

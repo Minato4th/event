@@ -41,7 +41,7 @@ public class PolyclinicsToDtoConverter implements Converter<Polyclinics, Polycli
                 .rating(source.getRating().stream()
                         .map(r -> ratingToDtoConverter.convert(r).getRating())
                         .collect(Collectors.toList()).stream()
-                        .mapToDouble(Double::doubleValue).average().getAsDouble())
+                        .mapToDouble(Double::doubleValue).average().orElse(0d))
                 .phones(source.getPhones().stream()
                         .map(phonesToDtoConverter::convert)
                         .collect(Collectors.toList()))

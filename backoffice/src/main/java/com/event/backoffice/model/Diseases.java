@@ -19,7 +19,7 @@ public class Diseases implements Serializable {
     private static final long serialVersionUID = -7675580052127119662L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "disease_id")
     private Long diseaseId;
 

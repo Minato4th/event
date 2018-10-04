@@ -1,5 +1,6 @@
 package com.event.backoffice.model;
 
+import com.event.backoffice.converter.LocalDateTimeConverter;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,5 +37,6 @@ public class Comments implements Serializable {
     private String comment;
 
     @Column(name = "creation_time")
-    private Date creationTime;// TODO: refactor date and time
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime creationTime;// TODO: refactor date and time
 }

@@ -19,7 +19,7 @@ public class FAQ implements Serializable {
     private static final long serialVersionUID = 8836189714596649351L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "faq_id")
     private Long faqId;
 
