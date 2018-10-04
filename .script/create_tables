@@ -2,7 +2,7 @@ CREATE TABLE public.faq
 (
     faq_id serial NOT NULL,
     question character varying(255),
-    answer character varying(255),
+    answer character varying(800),
     CONSTRAINT faq_id PRIMARY KEY (faq_id)
 )
 WITH (
@@ -124,7 +124,7 @@ ALTER TABLE public.comments
 CREATE TABLE public.diseases
 (
   disease_id serial NOT NULL,
-  disease character varying(255),
+  disease character varying(500),
   CONSTRAINT disease_id PRIMARY KEY (disease_id)
 )
 WITH (
