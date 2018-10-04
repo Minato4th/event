@@ -1,5 +1,6 @@
 package com.event.backoffice.model;
 
+import com.event.backoffice.converter.LocalDateTimeConverter;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,7 +22,7 @@ public class Ratings implements Serializable {
     private static final long serialVersionUID = 4935267016566262189L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rating_id")
     private Long ratingId;
 
@@ -36,5 +37,6 @@ public class Ratings implements Serializable {
     private Double rating;
 
     @Column(name = "creation_time")
-    private Date creationTime;
+    @Convert(converter = LocalDateTimeConverter.class)
+    private LocalDateTime creationTime;
 }

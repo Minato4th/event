@@ -20,7 +20,7 @@ public class Polyclinics implements Serializable {
     private static final long serialVersionUID = 3055334097512989177L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clinic_id")
     private Long clinicId;
 

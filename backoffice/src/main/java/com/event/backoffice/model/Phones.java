@@ -19,7 +19,7 @@ public class Phones implements Serializable {
     private static final long serialVersionUID = -226837468282410404L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "phone_id")
     private Long phoneId;
 

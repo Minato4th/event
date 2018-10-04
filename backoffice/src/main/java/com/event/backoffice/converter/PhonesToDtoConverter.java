@@ -11,7 +11,6 @@ public class PhonesToDtoConverter implements Converter<Phones, PhonesDto> {
     @Override
     public PhonesDto convert(Phones source) {
         return PhonesDto.builder()
-                .phoneId(source.getPhoneId())
                 .person(source.getPerson())
                 .phoneNumber(source.getPhoneNumber())
                 .build();

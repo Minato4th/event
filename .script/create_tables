@@ -55,7 +55,7 @@ CREATE TABLE public.ratings
     rating_id serial NOT NULL,
     polyclinics_id bigint,
     rating double precision,
-    creation_time timestamp WITH TIME ZONE,
+    creation_time TIMESTAMP,
     CONSTRAINT rating_id PRIMARY KEY (rating_id),
     CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
         REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE
@@ -107,7 +107,7 @@ CREATE TABLE public.comments
   comments_id serial NOT NULL,
   polyclinics_id bigint,
   comment character varying(255),
-  creation_time time with time zone,
+  creation_time TIMESTAMP,
   CONSTRAINT comments_id PRIMARY KEY (comments_id),
   CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
   REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE

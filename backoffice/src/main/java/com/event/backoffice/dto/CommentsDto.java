@@ -3,6 +3,7 @@ package com.event.backoffice.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -15,5 +16,5 @@ public class CommentsDto {
 
     private String comment;
 
-    private Date creationTime;
+    private LocalDateTime creationTime;
 }

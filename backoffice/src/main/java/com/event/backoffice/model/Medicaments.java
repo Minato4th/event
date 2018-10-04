@@ -19,7 +19,7 @@ public class Medicaments implements Serializable {
     private static final long serialVersionUID = 8731312708876346537L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "medicament_id")
     private Long medicamentId;
 
