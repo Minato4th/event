@@ -22,7 +22,7 @@ public class Comments implements Serializable {
     private static final long serialVersionUID = -2786894111427327691L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "comments_id")
     private Long commentsId;
 
