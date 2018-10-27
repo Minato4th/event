@@ -22,7 +22,7 @@ public class Ratings implements Serializable {
     private static final long serialVersionUID = 4935267016566262189L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "rating_id")
     private Long ratingId;
 
