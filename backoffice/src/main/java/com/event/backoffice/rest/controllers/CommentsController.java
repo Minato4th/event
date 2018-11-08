@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/")
@@ -18,8 +19,14 @@ public class CommentsController implements CommentsAPI {
 
     @Override
     @PutMapping(path = "api/comments/save/{polyclinicId}")
-    public void saveComments(@PathVariable final Long polyclinicId,
-                             @NotNull @Valid @RequestBody final CommentsDto commentsDto) {
+    public void saveCommentsById(@PathVariable final Long polyclinicId,
+                                 @NotNull @Valid @RequestBody final CommentsDto commentsDto) {
         commentsService.saveComments(commentsDto, polyclinicId);
+    }
+
+    @Override
+    @GetMapping(path = "api/comments/get/{polyclinicId}")
+    public List<CommentsDto> getCommentsById(@PathVariable final Long polyclinicId) {
+        return commentsService.getComments(polyclinicId);
     }
 }

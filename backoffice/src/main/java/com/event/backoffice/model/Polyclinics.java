@@ -42,6 +42,9 @@ public class Polyclinics implements Serializable {
     @Column(name = "longitude")
     private Double longitude;
 
+    @Column(name = "region")
+    private String region;
+
     @OneToMany(mappedBy = "polyclinics", cascade = CascadeType.ALL)
     private List<Ratings> rating;
 

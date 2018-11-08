@@ -29,4 +29,11 @@ public interface PolyclinicsAPI {
             @ApiResponse(code = 500, message = "Something go wrong")
     })
     PolyclinicsDto getPolyclinicsById(@PathVariable Long polyclinicsId);
+
+    @ApiOperation(value = "Get specified Polyclinics from DataBase by id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK", response = PolyclinicsDto.class),
+            @ApiResponse(code = 500, message = "Something go wrong")
+    })
+    List<PolyclinicsDto> getPolyclinicsByRegion(@PathVariable String region);
 }

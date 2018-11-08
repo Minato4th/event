@@ -1,7 +1,6 @@
 package com.event.backoffice.rest;
 
 import com.event.backoffice.dto.CommentsDto;
-import com.event.backoffice.dto.RatingDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 
@@ -24,6 +24,13 @@ public interface CommentsAPI {
             @ApiResponse(code = 200, message = "OK"),
             @ApiResponse(code = 500, message = "Something go wrong")
     })
-    void saveComments(@PathVariable Long polyclinicId,
-                      @NotNull @Valid @RequestBody CommentsDto commentsDto);
+    void saveCommentsById(@PathVariable Long polyclinicId,
+                          @NotNull @Valid @RequestBody CommentsDto commentsDto);
+
+    @ApiOperation(value = "Return Comments from DataBase for specified Polyclinic Id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "Something go wrong")
+    })
+    List<CommentsDto> getCommentsById(@PathVariable Long polyclinicId);
 }

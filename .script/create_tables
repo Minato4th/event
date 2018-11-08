@@ -21,6 +21,7 @@ CREATE TABLE public.polyclinics
     address character varying(255),
     latitude double precision,
     longitude double precision,
+    region character varying(255),
     CONSTRAINT clinics_id PRIMARY KEY (clinic_id)
 )
 WITH (
@@ -73,7 +74,7 @@ CREATE TABLE public.medicaments
 (
     medicament_id serial NOT NULL,
     name character varying(255),
-    remark character varying(255),
+    remark character varying(500),
     dose character varying(255),
     CONSTRAINT medicament_id PRIMARY KEY (medicament_id)
 )
@@ -88,7 +89,7 @@ CREATE TABLE public.remarks
 (
   remark_id serial NOT NULL,
   polyclinics_id bigint,
-  remark character varying(255),
+  remark character varying(500),
   CONSTRAINT remark_id PRIMARY KEY (remark_id),
   CONSTRAINT polyclinics_fk FOREIGN KEY (polyclinics_id)
   REFERENCES public.polyclinics (clinic_id) MATCH SIMPLE

@@ -12,4 +12,6 @@ public interface PolyclinicsService {
     PolyclinicsDto getPolyclinicsDtoById(Long polyclinicsId);
 
     Polyclinics getPolyclinicsById(Long polyclinicsId);
+
+    List<PolyclinicsDto> getPolyclinicsDtoByRegion(String region);
 }

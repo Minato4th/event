@@ -443,6 +443,78 @@ VALUES (51, 'Centrul Medical PEDIATRICA',
         46.995195,
         28.812271);
 
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (100, 'REGINA MARIA Sediul central',
+        'REGINA MARIA',
+        'mun. Bucuresti, Piata Charles de Gaulle Nr. 15, Cladirea Charles de Gaulle Plaza, et. 4, sector 1',
+        44.465188,
+        26.087311,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (101, 'REGINA MARIA Iasi',
+        'REGINA MARIA',
+        'jud. Iași, str. Grigore Ureche, 3',
+        47.159163,
+        27.590618,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (102, 'TRANSMED',
+        'TRANSMED',
+        'jud. Iași, Str. Perju, 9',
+        47.161632,
+        27.574458,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (103, 'CAB. DR. CRUMPEI',
+        'DR. CRUMPEI',
+        'jud. Iași, Str. Ghica Voda, 7',
+        47.160408,
+        27.596334,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (104, 'ANALDA (CENTRUMGYM)',
+        'ANALDA',
+        'jud. Iași, Str. Vasile Conta, 9',
+        47.169217,
+        27.579924,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (105, 'HABA S. DANISIA - CABINET MEDICAL INDIVIDUAL RADIODIAGNOSTIC',
+        'HABA S. DANISIA',
+        'jud. Iași, Str. Vitejilor, 19',
+        47.168569,
+        27.549036,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (106, 'Explora-RX Imaging Center',
+        'Explora-RX',
+        'jud. Iași, Str, Vasile Conta, 2 (demisol)',
+        47.169469,
+        27.580650,
+        'RO');
+
+INSERT INTO public.polyclinics(
+  clinic_id, name, short_name, address, latitude, longitude, region)
+VALUES (107, 'UZINA DE ZAMBETE',
+        'UZINA DE ZAMBETE',
+        'jud. Iași, Bd. Nicolae Iorga, 6 (Bloc 903 A, parter)',
+        47.148124,
+        27.581676,
+        'RO');
+
 --Phones
 INSERT INTO public.phones(
   phone_id, polyclinics_id, person, phone_number)
@@ -992,7 +1064,95 @@ VALUES (91,
         51,
         'Registratura',
         '+37322911501');
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (200,
+        100,
+        'CALL CENTER',
+        '0219268');
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (201,
+        101,
+        'CALL CENTER',
+        '0219268');
 
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (202,
+        102,
+        'Telefon',
+        '0232222272');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (203,
+        102,
+        'Fax',
+        '0232222273');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (204,
+        103,
+        'Telefon',
+        '0232216382');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (205,
+        104,
+        'Telefon',
+        '0232274056');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (206,
+        105,
+        'CALL CENTER Regina Maria',
+        '0219268');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (207,
+        106,
+        'Telefon',
+        '0232277027');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (208,
+        106,
+        'Telefon',
+        '0232277017');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (209,
+        106,
+        'Telefon Mobil',
+        '0747496493');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (210,
+        106,
+        'Telefon Mobil',
+        '0742975672');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (211,
+        107,
+        'Telefon',
+        '0232215253');
+
+INSERT INTO public.phones(
+  phone_id, polyclinics_id, person, phone_number)
+VALUES (212,
+        107,
+        'Telefon Mobil',
+        '0735510295');
 
 --Remarks
 INSERT INTO public.remarks(
@@ -1065,6 +1225,61 @@ VALUES (10,
         'Staţionar'
 );
 
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (100,
+        100,
+        'Program Call Center: Luni-Vineri 7:30-21:00; Sâmbătă si Duminică: 8:00-20:00'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (101,
+        101,
+        'Alergologie si imunologie, Boli infectioase, Cardiologie, Chirurgie plastica, Dermatologie, Ecografii, Endocrinologie, Epidemiologie, Gastroenterologie, Medicina Muncii, Neurologie, Ginecologie, Oftalmologie, ORL, Ortopedie, Pediatrie, Pneumologie, Psihiatrie, Radiologie si imagistica medicala, Recuperare medicala, Reumatologie, Urologie, RMN'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (102,
+        102,
+        'Recuperare medicala, Fizioterapie, Kinetoterapie, Mamografie, Osteodensitometrie, CT'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (103,
+        103,
+        'Radiologie'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (104,
+        104,
+        'Reumatologie, Kinetoterapie, Fizioterapie'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (105,
+        105,
+        'Ecografie, Mamografie, Radiografie. ATENTIE programarile se fac DOAR prin intermediul Regina Maria - Iasi'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (106,
+        106,
+        'CT. În incinta Ambulatorului de Specialitate Sf. Spiridon'
+);
+
+INSERT INTO public.remarks(
+  remark_id, polyclinics_id, remark)
+VALUES (107,
+        107,
+        'Stomatologie. 1 detartraj si 1 periaj gratuit an/abonat (AIRflow-ul se achita) 10% discount la pret lista (exceptie chirurgie si implantologie)'
+);
 
 --Ratings
 INSERT INTO public.ratings(
@@ -1438,6 +1653,55 @@ INSERT INTO public.ratings(
 VALUES (62,
         32,
         10.0);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (100,
+        100,
+        5.5);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (101,
+        101,
+        5.5);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (102,
+        102,
+        4.5);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (103,
+        103,
+        8.0);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (104,
+        104,
+        8.0);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (105,
+        105,
+        8.0);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (106,
+        106,
+        8.0);
+
+INSERT INTO public.ratings(
+  rating_id, polyclinics_id, rating)
+VALUES (107,
+        107,
+        8.0);
+
 
 --Diseases
 INSERT INTO public.diseases(

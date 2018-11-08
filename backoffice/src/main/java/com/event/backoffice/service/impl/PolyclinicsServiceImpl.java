@@ -38,4 +38,12 @@ public class PolyclinicsServiceImpl implements PolyclinicsService {
     public Polyclinics getPolyclinicsById(final Long polyclinicsId) {
         return polyclinicsDao.findPolyclinicsById(polyclinicsId);
     }
+
+    @Override
+    public List<PolyclinicsDto> getPolyclinicsDtoByRegion(final String region) {
+        return polyclinicsDao.findPolyclinicsByRegion(region).stream()
+                .map(polyclinicsToDtoConverter::convert)
+                .collect(Collectors.toList());
+    }
+
 }

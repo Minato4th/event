@@ -29,4 +29,10 @@ public class PolyclinicsController implements PolyclinicsAPI {
     public PolyclinicsDto getPolyclinicsById(@PathVariable final Long polyclinicsId) {
         return polyclinicsService.getPolyclinicsDtoById(polyclinicsId);
     }
+
+    @Override
+    @GetMapping(path = "api/polyclinics/get/region/{region}")
+    public List<PolyclinicsDto> getPolyclinicsByRegion(@PathVariable String region) {
+        return polyclinicsService.getPolyclinicsDtoByRegion(region);
+    }
 }
