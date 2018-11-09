@@ -23,6 +23,7 @@ public class ConversionConfig {
         service.addConverter(new DiseasesToDtoConverter());
         service.addConverter(new CommentsToDtoConverter());
         service.addConverter(new CommentsDtoToCommentsConverter());
+        service.addConverter(new UserToDtoConverter());
         return service;
     }
 

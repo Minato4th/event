@@ -17,14 +17,14 @@ public class UserDto {
 
     private String userName;
 
-    private String password;
+    private String email;
 
-    private String role;
-
-    private String company;
-
-    private String refCode;
-
-    private Boolean enabled;
+//    private String role;
+//
+//    private String company;
+//
+//    private String refCode;
+//
+//    private Boolean enabled;
 
 }

@@ -6,18 +6,13 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserToDtoConverter implements Converter<User, UserDto> {
+public class UserDtoToUserConverter implements Converter<UserDto, User> {
 
     @Override
-    public UserDto convert(User source) {
-        return UserDto.builder()
-                .id(source.getId())
+    public User convert(UserDto source) {
+        return User.builder()
                 .userName(source.getUserName())
                 .email(source.getEmail())
-//                .role(source.getRole())
-//                .company(source.getCompany())
-//                .refCode(source.getRefCode())
-//                .enabled(source.getEnabled())
                 .build();
     }
 }

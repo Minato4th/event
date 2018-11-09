@@ -23,21 +23,21 @@ public class User implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "username")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "password")
-    private String password;
+    @Column(name = "email")
+    private String email;
 
-    @Column(name = "role")
-    private String role;
-
-    @Column(name = "company")
-    private String company;
-
-    @Column(name = "ref_code")
-    private String refCode;
-
-    @Column(name = "enabled")
-    private Boolean enabled;
+//    @Column(name = "role")
+//    private String role;
+//
+//    @Column(name = "company")
+//    private String company;
+//
+//    @Column(name = "ref_code")
+//    private String refCode;
+//
+//    @Column(name = "enabled")
+//    private Boolean enabled;
 }
